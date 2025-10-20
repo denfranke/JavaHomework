@@ -1,13 +1,19 @@
-package Homework_1;
+package Homework_2;
+
+import java.util.Scanner;
+
+import ru.netology.service.CustomsService;
 
 public class Main {
     public static void main(String[] args) {
-        String s = "Kulichkov Denis";
-        System.out.println(s);
+        Scanner scanner = new Scanner(System.in);
 
-        int income = 10000;
-        int spending = 7500;
+        System.out.print("Введите цену товара (в руб.): ");
+        int price = scanner.nextInt();
 
-        System.out.println("Итого (руб):\n" + (income - spending));
+        System.out.print("Введите вес товара (в кг.): ");
+        int height = scanner.nextInt();
+
+        System.out.println("Размер пошлины (в руб.) составит: " + CustomsService.calculateCustoms(price, height));
     }
 }
