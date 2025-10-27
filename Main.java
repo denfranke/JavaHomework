@@ -4,21 +4,12 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void taxEarningsMinusSpendings(int earnings, int spendings) {
-        int tax1 = Math.max((earnings) * 6 / 100, 0);
-        int tax2 = Math.max((earnings - spendings) * 15 / 100, 0);
+    public static int taxEarnings(int earnings) {
+        return Math.max((earnings) * 6 / 100, 0);
+    }
 
-        if (tax1 < tax2) {
-            System.out.println("\nМы советуем вам УСН доходы\n" +
-                    "Ваш налог составит: " + tax1 +
-                    "\nНалог на другой системе: " + tax2 +
-                    "\nЭкономия: " + (tax2 - tax1));
-        } else {
-            System.out.println("\nМы советуем вам УСН доходы минус расходы\n" +
-                    "Ваш налог составит: " + tax2 +
-                    "\nНалог на другой системе: " + tax1 +
-                    "\nЭкономия: " + (tax1 - tax2));
-        }
+    public static int taxEarningsMinusSpendings(int earnings, int spendings) {
+        return Math.max((earnings - spendings) * 15 / 100, 0);
     }
 
     public static void main(String[] args) {
@@ -57,7 +48,20 @@ public class Main {
                     spendings += money;
                     break;
                 case 3:
-                    taxEarningsMinusSpendings(earnings, spendings);
+                    int tax1 = taxEarnings(earnings);
+                    int tax2 = taxEarningsMinusSpendings(earnings, spendings);
+
+                    if (tax1 < tax2) {
+                        System.out.println("\nМы советуем вам УСН доходы\n" +
+                                "Ваш налог составит: " + tax1 +
+                                "\nНалог на другой системе: " + tax2 +
+                                "\nЭкономия: " + (tax2 - tax1));
+                    } else {
+                        System.out.println("\nМы советуем вам УСН доходы минус расходы\n" +
+                                "Ваш налог составит: " + tax2 +
+                                "\nНалог на другой системе: " + tax1 +
+                                "\nЭкономия: " + (tax1 - tax2));
+                    }
                     break;
                 default:
                     System.out.println("Такой операции нет");
