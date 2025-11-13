@@ -1,44 +1,40 @@
-package Homework_7;
+package Module_1.Homework_8;
 
-import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
-    public static void main(String[] args) {
-        String[] products = {"Хлеб", "Яблоки", "Молоко"};
-        int[] prices = {100, 200, 300};
+    public static final int SIZE = 8;
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("\nСписок товаров для покупки:");
-        for (int i = 0; i < products.length; i++) {
-            System.out.println(i + 1 + ". " + products[i] + " " + prices[i] + " руб/шт");
-        }
-
-        int sumProducts = 0, j = 0;
-        int[] prdctNum = new int[products.length];
-        int[] cnt = new int[products.length];
-
-        while (true) {
-            System.out.println("Выберите товар и количество или введите end: ");
-
-            String input = scanner.next();
-
-            if (input.equals("end")) {
-                break;
+    public static void printArr(int[][] colors) {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                System.out.format("%4d", colors[i][j]);
             }
-            int productNumber = Integer.parseInt(input);
-            prdctNum[j] = productNumber - 1;
-            int productCount = Integer.parseInt(scanner.next());
-            cnt[j] = productCount;
-            j++;
+            System.out.println();
+        }
+        System.out.println();
+    }
 
-            sumProducts += prices[productNumber - 1] * productCount;
+    public static void main(String[] args) {
+        int[][] colors = new int[SIZE][SIZE];
+
+        Random random = new Random();
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                colors[i][j] = random.nextInt(256);
+            }
         }
-        System.out.println("Ваша корзина:");
-        for (int i = 0; i < j; i++) {
-            System.out.println(products[prdctNum[i]] + " " + cnt[i] + " шт " + prices[prdctNum[i]] + " руб/шт " + (prices[prdctNum[i]] * cnt[i]) + "руб в сумме");
+
+        printArr(colors);
+
+        int[][] rotatedColors = new int[SIZE][SIZE];
+
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                rotatedColors[i][j] = colors[SIZE - j - 1][i];
+            }
         }
-        System.out.println("Итого " + sumProducts);
-        scanner.close();
+
+        printArr(rotatedColors);
     }
 }
