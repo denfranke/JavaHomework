@@ -1,0 +1,8 @@
+package Module_2.Homework1.taxes;
+
+public class IncomeTaxSystem extends TaxSystem {
+    @Override
+    public int calcTaxFor(int debit, int credit) {
+        return (int) (0.06 * debit);
+    }
+}
