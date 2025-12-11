@@ -13,16 +13,6 @@ public class Company {
         credit=0;
     }
 
-    public int applyDeals(Deal[] deals) {
-        for (int i=0;i<deals.length;i++){
-            this.debit += deals[i].getDebitChange();
-            this.credit -= deals[i].getCreditChange();
-        }
-        int razn = debit - credit;
-        payTaxes();
-        return razn;
-    }
-
     public void shiftMoney(int amount) {
         if (amount > 0) {
             debit += amount;
