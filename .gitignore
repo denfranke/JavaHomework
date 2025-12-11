@@ -27,3 +27,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/src/Other2/
+/src/Module_additional1/
+/src/Module_1/
