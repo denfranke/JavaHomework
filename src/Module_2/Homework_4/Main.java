@@ -1,8 +1,6 @@
 package Module_2.Homework_4;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,7 +19,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         int totalCost = 0;
-        List<String> uniqueCountries = new ArrayList<>();
+        Set<String> uniqueCountries = new HashSet<>();
 
         while (true) {
             System.out.println("\nЗаполнение нового заказа.");
@@ -47,16 +45,7 @@ public class Main {
                 int deliveryCost = costPerAddress.get(address) * weight;
                 totalCost += deliveryCost;
 
-                boolean flag = false;
-                for (String c : uniqueCountries) {
-                    if (c.equals(country)) {
-                        flag = true;
-                        break;
-                    }
-                }
-                if (!flag) {
-                    uniqueCountries.add(country);
-                }
+                uniqueCountries.add(country);
 
                 System.out.println("Стоимость доставки составит: " + deliveryCost + " руб.");
                 System.out.println("Общая стоимость всех доставок: " + totalCost + " руб.");
