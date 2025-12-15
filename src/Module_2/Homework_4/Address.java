@@ -1,0 +1,27 @@
+package Module_2.Homework_4;
+
+public class Address {
+    private String country;
+    private String city;
+
+    public Address(String country, String city) {
+        this.country = country;
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return country.equals(address.country) && city.equals(address.city);
+    }
+}
