@@ -1,4 +1,4 @@
-package Module_2.Homework1.taxes;
+package Module_2.Homework_1.Taxes;
 
 public class IncomeTaxSystem extends TaxSystem {
     @Override
