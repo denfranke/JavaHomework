@@ -10,7 +10,7 @@ public class Main {
         Address address4 = new Address("Russia", "Kazan");
         Address address5 = new Address("France", "Paris");
 
-        MyMap<Address, Integer> costPerAddress = new MyMap<>();
+        Map<Address, Integer> costPerAddress = new HashMap<>();
         costPerAddress.put(address1, 100);
         costPerAddress.put(address2, 200);
         costPerAddress.put(address3, 300);

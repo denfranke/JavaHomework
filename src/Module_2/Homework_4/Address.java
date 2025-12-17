@@ -1,5 +1,7 @@
 package Module_2.Homework_4;
 
+import java.util.Objects;
+
 public class Address {
     private String country;
     private String city;
@@ -23,5 +25,10 @@ public class Address {
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
         return country.equals(address.country) && city.equals(address.city);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(country, city);
     }
 }
